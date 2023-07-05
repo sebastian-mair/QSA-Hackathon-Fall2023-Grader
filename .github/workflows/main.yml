@@ -6,4 +6,6 @@ jobs:
     steps:
       - run: echo "Triggering Wokflow 2"
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.5.3
+        with:
+          name: sebastian-mair/QSA-Hackathon-Fall2023 # repository: # optional, default is ${{ github.repository }}
