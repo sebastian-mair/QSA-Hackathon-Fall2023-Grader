@@ -7,11 +7,10 @@ jobs:
       - uses: actions/checkout@v3.5.3
       - uses: actions/checkout@v3.5.3
         with:
-          repository: sebastian-mair/QSA-Hackathon-Fall2023 # repository: # optional, default is ${{ github.repository }}
+          repository: sebastian-mair/QSA-Hackathon-Fall2023
+          path: ./QSA-Hackathon-Fall2023-Grader
       - uses: actions/setup-python@v3.1.4
         with:
           python-version: 3.8
-      - name: Test Output
-        run: echo "Triggering Grading"
-        # TODO: run pytest.
-      
+      - name: Test Folder structure
+        run: ls -R
