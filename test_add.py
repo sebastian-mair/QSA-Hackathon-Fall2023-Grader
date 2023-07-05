@@ -1,5 +1,5 @@
 import importlib  
-hackathon = importlib.import_module("QSA-Hackathon-Fall2023")
+hackathon = importlib.import_module("QSA-Hackathon-Fall2023.adder")
 
 def test_add():
-  assert hackathon.adder.add(3, 4) == 7
+  assert hackathon.add(3, 4) == 7
