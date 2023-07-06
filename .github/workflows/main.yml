@@ -22,8 +22,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Test Folder structure
-        run: ls -altR
       - name: Run pytest
         run: pytest --junit-xml=test-results.xml
       - name: Surface failing tests
@@ -33,3 +31,4 @@ jobs:
           path: test-results.xml
           summary: true
           display-options: fEX
+          fail-on-empty: true
