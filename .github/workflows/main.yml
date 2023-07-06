@@ -25,10 +25,11 @@ jobs:
       - name: Run pytest
         run: pytest --junit-xml=test-results.xml
       - name: Surface failing tests
-        if: always()
-        uses: pmeier/pytest-results-action@v0.3.0
-        with:
-          path: test-results.xml
-          summary: true
-          display-options: fEX
-          fail-on-empty: true
+        run: echo "this doesnt work yet"
+        #if: always()
+        #uses: pmeier/pytest-results-action@main
+        #with:
+        #  path: test-results.xml
+        #  summary: true
+        #  display-options: fEX
+        #  fail-on-empty: true
