@@ -6,11 +6,9 @@ jobs:
     steps:
       - name: Dump GitHub context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_CONTEXT: ${{ toJson(github).event.clientPayload.repository }}
         run: |
           echo "$GITHUB_CONTEXT"
-      - name: Test Context pt. 2
-        run: echo "$GITHUB_CONTEXT"
       - uses: actions/checkout@v3.5.3
       - uses: actions/checkout@v3.5.3
         with:
