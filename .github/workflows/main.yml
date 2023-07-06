@@ -4,6 +4,13 @@ jobs:
   grade:
     runs-on: ubuntu-latest
     steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+      - name: Test Context pt. 2
+        run: echo "$GITHUB_CONTEXT"
       - uses: actions/checkout@v3.5.3
       - uses: actions/checkout@v3.5.3
         with:
