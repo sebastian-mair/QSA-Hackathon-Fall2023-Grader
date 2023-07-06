@@ -25,4 +25,11 @@ jobs:
       - name: Test Folder structure
         run: ls -altR
       - name: Run pytest
-        run: pytest
+        run: pytest --junit-xml=test-results.xml
+      - name: Surface failing tests
+        if: always()
+        uses: pmeier/pytest-results-action@main
+        with:
+          path: test-results.xml
+          summary: true
+          display-options: fEX
