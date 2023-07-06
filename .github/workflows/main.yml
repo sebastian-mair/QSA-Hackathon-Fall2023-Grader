@@ -6,13 +6,15 @@ jobs:
     steps:
       - name: Dump GitHub context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github.event) }}
+          GITHUB_CONTEXT: ${{ toJson(github.event.client_payload.repository) }}
         run: |
           echo "$GITHUB_CONTEXT"
       - uses: actions/checkout@v3.5.3
       - uses: actions/checkout@v3.5.3
+        env:
+            GITHUB_CONTEXT: ${{ toJson(github.event.client_payload.repository) }}
         with:
-          repository: sebastian-mair/QSA-Hackathon-Fall2023
+          repository: ${{ GITHUB_CONTEXT }} # sebastian-mair/QSA-Hackathon-Fall2023
           path: ./QSA-Hackathon-Fall2023
       - uses: actions/setup-python@v3.1.4
         with:
