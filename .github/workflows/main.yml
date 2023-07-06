@@ -7,9 +7,12 @@ jobs:
       GITHUB_CONTEXT: ${{ toJson(github) }}
     steps:
       - name: Pls work....
+        env:
+          JSON: ${{ toJson(github) }}
         run: |
+          echo $JSON
           # echo ${{ fromJson(env.GITHUB_CONTEXT.event.client_payload.repository) }}# doesnt work
-          echo $env.GITHUB_CONTEXT.event
+          # echo $env.GITHUB_CONTEXT.event
       - uses: actions/checkout@v3.5.3
       - uses: actions/checkout@v3.5.3
         with:
