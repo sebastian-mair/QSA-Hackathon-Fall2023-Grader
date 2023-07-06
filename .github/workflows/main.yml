@@ -6,15 +6,13 @@ jobs:
     env:
       GITHUB_CONTEXT: ${{ toJson(github.event.client_payload.repository) }}
     steps:
-      - name: Pls work...
+      - name: Pls work
         run: |
           echo ${{ env.GITHUB_CONTEXT }}
-          # echo ${{ fromJson(env.GITHUB_CONTEXT.event.client_payload.repository) }}# doesnt work
-          # echo $env.GITHUB_CONTEXT.event
       - uses: actions/checkout@v3.5.3
       - uses: actions/checkout@v3.5.3
         with:
-          repository: ${{ fromJson(env.GITHUB_CONTEXT) }} # sebastian-mair/QSA-Hackathon-Fall2023
+          repository: ${{ env.GITHUB_CONTEXT }}
           path: ./QSA-Hackathon-Fall2023
       - uses: actions/setup-python@v3.1.4
         with:
